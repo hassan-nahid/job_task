@@ -11,14 +11,14 @@ import auth from '../../firebase/firebase.config';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
     const navigate = useNavigate();
-    const [user, , ] = useAuthState(auth);
+    const [user, ,] = useAuthState(auth);
 
     const [
         signInWithEmailAndPassword,
         ,
         ,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
     // Function to toggle password visibility
     const togglePasswordVisibility = () => {
@@ -30,14 +30,14 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        signInWithEmailAndPassword(email,password)
+        signInWithEmailAndPassword(email, password)
 
     }
     useEffect(() => {
         if (user) {
             navigate("/post_login");
         }
-    }, [user, navigate ]);
+    }, [user, navigate]);
 
 
     return (
@@ -96,11 +96,11 @@ const Login = () => {
                     >
                         Sign In
                     </button>
-                    <LoginWithGoogle/>
-                    <div className="text-center mt-8">
-                        <p>Don&apos;t have an account? <Link to={'/register'} className="text-custom-yellow hover:underline">Register</Link></p>
-                    </div>
+                    <LoginWithGoogle />
                 </form>
+                <div className="text-center mt-8">
+                    <p>Don&apos;t have an account? <Link to={'/register'} className="text-custom-yellow hover:underline">Register</Link></p>
+                </div>
             </div>
         </div>
     );

@@ -10,14 +10,14 @@ import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-
 
 const Register = () => {
     const navigate = useNavigate();
-    const [user, , ] = useAuthState(auth);
+    const [user, ,] = useAuthState(auth);
     const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
     const [
         createUserWithEmailAndPassword,
         ,
         ,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     // Function to toggle password visibility
     const togglePasswordVisibility = () => {
@@ -30,14 +30,14 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         createUserWithEmailAndPassword(email, password)
-        
+
     }
 
     useEffect(() => {
         if (user) {
             navigate("/post_login");
         }
-    }, [user, navigate ]);
+    }, [user, navigate]);
 
     return (
         <div className="">
@@ -105,11 +105,11 @@ const Register = () => {
                     >
                         Register
                     </button>
-                    <LoginWithGoogle />
-                    <div className="text-center mt-8">
-                        <p>Have an account? <Link to={'/Login'} className="text-custom-yellow hover:underline"> Sign In</Link></p>
-                    </div>
                 </form>
+                <LoginWithGoogle />
+                <div className="text-center mt-8">
+                    <p>Have an account? <Link to={'/Login'} className="text-custom-yellow hover:underline"> Sign In</Link></p>
+                </div>
             </div>
         </div>
     );
